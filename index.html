@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas Pixel Art</title>
+    </head>
+    <body>
+    <style>
+        /*#center {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+        #colors {
+            display: inline;
+            float: left;
+        }
+        #colors button {
+            width: 50px;
+            height: 50px;
+            display:block;
+        }*/
+    </style>
+        <div id="center">
+            <h1>Pixel Art</h1>
+            <div id="colors">
+                <button onclick="setColor('#FFFFFF')" style="background-color: #FFFFFF"></button>
+                <button onclick="setColor('#FF0000')" style="background-color: #FF0000"></button>
+                <button onclick="setColor('#00FF00')" style="background-color: #00FF00"></button>
+                <button onclick="setColor('#0000FF')" style="background-color: #0000FF"></button>
+            </div>
+            <canvas id="myCanvas" width="500" height="500"></canvas>
+            <button id="clear">Clear Canvas</button>
+        </div>
+
+        <script src="graphics.js"></script>
+        <script>
+            start();
+            var squareSize = canvas.width / 10;
+            function drawGrid() {
+                if (fillMode == "fill") {
+                    color = ctx.fillStyle
+                } else {
+                    color = ctx.strokeStyle
+                }
+                setFillMode("stroke");
+                setColor("#000000");
+                drawRectangle(0, 0, canvas.width, canvas.height);
+                for (var x = 0; x < 10; x++) {
+                    for (var y = 0; y < 10; y++) {
+                        drawSquare((canvas.width / 10) * x, (canvas.height / 10) * y, canvas.width / 10, canvas.height / 10);
+                    }
+                }
+                setColor(color);
+            }
+            drawGrid();
+
+            function fillSquareOnGrid(x, y) {
+                setFillMode("fill");
+                x = Math.floor(x / squareSize) * squareSize;
+                y = Math.floor(y / squareSize) * squareSize;
+                drawSquare(x, y, squareSize);
+                drawGrid();
+            }
+
+            setFillMode("fill");
+
+            canvas.addEventListener('click', function (e) {
+                var squareX = e.pageX - canvas.offsetLeft;
+                var squareY = e.pageY - canvas.offsetTop;
+                fillSquareOnGrid(squareX, squareY);
+            });
+
+            var btn = document.getElementById('clear');
+
+            btn.addEventListener('click', function (e) {
+                clearCanvas();
+                drawGrid();
+            });
+        </script>
+    </body>
+</html>
