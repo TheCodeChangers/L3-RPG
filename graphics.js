@@ -19,6 +19,13 @@ if (canvases.length > 1) {
   canvas = canvases[0];
 }
 
+
+
+
+function drawBall(){
+  //body...
+}
+
 function start(in_canvas) {
   if (in_canvas !== undefined) {
     canvas = in_canvas;
