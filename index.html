@@ -2,33 +2,36 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Canvas Pixel Art</title>
+        <title>Saxophones are awesome!</title>
     </head>
     <body>
     <style>
-        /*#center {
+        #center {
             display: block;
             margin: 0 auto;
             width: 50%;
             text-align: center;
         }
         #colors {
-            display: inline;
-            float: left;
+            display: flex;
         }
         #colors button {
             width: 50px;
             height: 50px;
             display:block;
-        }*/
+        }
+        h1{
+          color:red;
+        }
     </style>
         <div id="center">
-            <h1>Pixel Art</h1>
+            <h1>Awesome Pixel Art</h1>
             <div id="colors">
                 <button onclick="setColor('#FFFFFF')" style="background-color: #FFFFFF"></button>
                 <button onclick="setColor('#FF0000')" style="background-color: #FF0000"></button>
                 <button onclick="setColor('#00FF00')" style="background-color: #00FF00"></button>
                 <button onclick="setColor('#0000FF')" style="background-color: #0000FF"></button>
+                <button onclick="setColor('#800080')" style="background-color: #800080"></button>
             </div>
             <canvas id="myCanvas" width="500" height="500"></canvas>
             <button id="clear">Clear Canvas</button>
